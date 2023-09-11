@@ -91,10 +91,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'dokak',                      # Or path to database file if using sqlite3.
-            'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': '1235gg',                  # Not used with sqlite3.
-        'HOST': '121.129.230.193',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',
+        'USER': 'postgres',                      # Not used with sqlite3.
+        'PASSWORD': 'dokak0606',                  # Not used with sqlite3.
+        'HOST': 'svc.sel5.cloudtype.app',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '31611',
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -134,7 +134,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = os.path.join('staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join('static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
