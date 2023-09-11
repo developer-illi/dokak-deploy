@@ -15,6 +15,9 @@ $(function (){
             return false; // 유효하지 않은 핸드폰 번호
         }
     }
+    $('#main_logo_img').click(function (){
+       location.href = '/';
+    });
     $('.login_page_open').click(function (){
         $('.login_wrapper').css({display:'flex'});
         $('.login_pg').css({display:'flex'});
