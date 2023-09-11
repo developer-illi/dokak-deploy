@@ -94,7 +94,7 @@ DATABASES = {
         'USER': 'postgres',                      # Not used with sqlite3.
         'PASSWORD': '1235gg',                  # Not used with sqlite3.
         'HOST': 'svc.sel5.cloudtype.app',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '32150',
+        'PORT': '32252',
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
