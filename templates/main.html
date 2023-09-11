@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}">
+    <link rel='stylesheet' type="text/css" href='{% static 'css/swiper.min.css' %}'>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+    <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js'></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        function page_open(url){
+            var url = url
+            window.open(url,'_blank')
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body class="main_body">
+    <div class="actis">
+        <div><p id="actis_title">반영구 “독학” 해서 가능합니다.</p></div>
+        <div class="close_today">
+            {# <input type="checkbox" id="today_not"><span>오늘 그만보기</span> #}
+            <img src="{% static 'image/close_btn.png' %}"><span>닫기</span>
+        </div>
+    </div>
+    <div class="header">
+        <div class="logo-section">
+            <div class="log_img"><img src="{% static 'image/logo.png' %}"></div>
+            <div class="user_sections">
+                <div class="user_button_section">
+                    {% if username == None %}
+                        <div><img class="user_icons" src="{% static 'image/user_icons.png' %}"></div>
+                        <div class="login_page_open">login</div>
+                    {% endif %}
+                    {% if username != None %}
+                        <div><img class="user_icons" src="{% static 'image/user_icons.png' %}"></div>
+                        <div class="mypage_open"><a href="{% url 'my_page' %}">My page</a></div>
+                    {% endif %}
+                </div>
+                <div class="nation_section">
+                    <ul>
+                        <img id="arow_down" src="{% static 'image/arow.png' %}">
+                        <img id="arow_up" src="{% static 'image/arow.png' %}">
+                        <li><img id="kor" src="{% static 'image/kor.png' %}"> </li>
+                        <li><img id="eng" src="{% static 'image/eng.png' %}"> </li>
+                        <li><img id="chi" src="{% static 'image/chi.png' %}"> </li>
+                        <li><img id="jap" src="{% static 'image/jap.png' %}"> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Live_area">{# 라이브 영억 #}
+            <div class="swiper-container slider1">
+      <!-- Additional required wrapper-->
+                <div class="swiper-wrapper">
+        <!-- Slides-->
+                    <div class="swiper-slide img_area">
+                        <div class="card_img">
+                            <img src="{% static 'image/artist_live_1.png' %}">
+                            <p class="tea_title">디비노뷰리랩</p>
+                            <p class="tea_name">전준우</p>
+                        </div>
+                        <div class="teaching_title_text">
+                            <p class="teaching_title">"독학 반영구 시작하기"</p>
+                            <p class="teaching_text">어떻게 하면 반영구 독학으로 시작할 수 있을까요?<br><br>전준우 원장이 알려주는 반영구로 성공하는 방법<br><br>DOKAK 라이브에서 알려드립니다!</p>
+                            <span class="last_time_set" id="sample01"></span>
+                            <div class="live_btn" id="https//naver.com" onclick="page_open('https://naver.com')">Go Live</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide img_area">
+                        <div class="card_img">
+                            <img src="{% static 'image/artist_live_1.png' %}">
+                            <p class="tea_title">디비노뷰리랩</p>
+                            <p class="tea_name">전준우</p>
+                        </div>
+                        <div class="teaching_title_text">
+                            <p class="teaching_title">"독학 반영구 시작하기"</p>
+                            <p class="teaching_text">어떻게 하면 반영구 독학으로 시작할 수 있을까요?<br><br>전준우 원장이 알려주는 반영구로 성공하는 방법<br><br>DOKAK 라이브에서 알려드립니다!</p>
+                            <span class="last_time_set" id="sample02"></span>
+                            <div class="live_btn" id="https//naver.com" onclick="page_open('https://naver.com')">Go Live</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide img_area">
+                        <div class="card_img">
+                            <img src="{% static 'image/artist_detail.jpeg' %}">
+                            <p class="tea_title">디비노뷰리랩</p>
+                            <p class="tea_name">전준우</p>
+                        </div>
+                        <div class="teaching_title_text">
+                            <p class="teaching_title">"독학 반영구 시작하기"</p>
+                            <p class="teaching_text">어떻게 하면 반영구 독학으로 시작할 수 있을까요?<br><br>전준우 원장이 알려주는 반영구로 성공하는 방법<br><br>DOKAK 라이브에서 알려드립니다!</p>
+                            <span class="last_time_set" id="sample03"></span>
+                            <div class="live_btn" id="https//naver.com" onclick="page_open('https://naver.com')">Go Live</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+        <div class="text_area">
+            <div class="text_box">
+                <p>반영구 . 마케팅 레시피연구소</p><br>
+                <p>국내유일 실시간 LIVE 강의</p><br>
+                <p>“독하게 배우고 성공 할 독사들의 시크릿 커뮤니티"</p><br>
+            </div>
+        </div>
+        <div class="last_lecture">
+            <div class="last_text_area">
+                <p>LAST LECTURE</p>
+            </div>
+            <div class="last_lecture_box">
+                <div class="swiper-container last_lecture_content">
+                    <div class="swiper-wrapper last_lecture_slider">{# 슬라이드 형태 쇼 3 좌우 0.1? #}
+                        <div class="swiper-slide last_lecture_item fir_item">
+                            <div class="lecure_img_area">
+                                <img src="{% static 'image/Mask group-1.png' %}">
+                                <p class="lecture_title">"LIPS 색소 어디 까지 써봤니?"</p>
+                                <p>반하연 아카데미 | 반하연</p>
+                            </div>
+                        </div>{# 추후 반복 붙여야함 #}
+                        <div class="swiper-slide last_lecture_item">
+                            <div class="lecure_img_area">
+                                <img src="{% static 'image/Mask group-3.png' %}">
+                                <p class="lecture_title">“3일에 끝내는 헤어스투룩 종착지"</p>
+                                <p>투브로우즈 | 이재준</p>
+                            </div>
+                        </div>{# 추후 반복 붙여야함 #}
+                        <div class="swiper-slide last_lecture_item">
+                            <div class="lecure_img_area">
+                                <img src="{% static 'image/Mask group-5.png' %}">
+                                <p class="lecture_title">"고객이 반하는 사진보정법"</p>
+                                <p>혜이주 | 주현정</p>
+                            </div>
+                        </div>{# 추후 반복 붙여야함 #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_box">
+            <div class="center_section">
+                <div class="center_item">
+                    <p class="center_text">고객센터</p>
+                    <p>오전 10시~ 오후 6시 (주말, 공휴일 제외)</p>
+                    <p><button class="inquiry_btn">문의하기</button></p>
+                </div>
+                <div>
+                    <p></p><br><br>
+                    <p>이용약관 | 개인정보 처리방침 | <span id="buis_btn">사업자 정보</span> | <span id="allia_btn">제휴 및 대외협력</span></p>
+                </div>
+            </div>
+            <div class="buisnessman_text">
+                <p>디노뷰디랩 | 전문연 | 서울시 종로구 대학로 83(연건동76), 3층</p><br>
+                <p>010.3919.8858 | dokak-pmu@kakao.com | 178-03-02113</p>
+            </div>
+            <div class="alliance_text">
+                <p>디노뷰디랩 | 전문연 | 서울시 종로구 대학로 83(연건동76), 3층</p><br>
+                <p>010.3919.8858 | dokak-pmu@kakao.com | 178-03-02113</p>
+            </div>
+        </div>
+    </div>
+<article class="login_pg">
+        <div class = "login_wrapper">
+            <div class="login_logo">로그인</div>
+            <div class="login_close"><img src="{% static 'image/close_btn.png' %}"></div>
+            <form class="login_form">
+                <div>
+                    <span>Email ID</span>
+                </div>
+                <input id="LOGIN_ID" class = "login_text" type="text" name="id" placeholder="example@naver.com">
+                <div class="password_area">
+                    <span>Password</span>
+                </div>
+                <input  id="LOGIN_PW" class = "login_text" type="password" name="id" placeholder="비밀번호">
+                <a class = "login_bottom" href="" >비밀번호를 잊으셨나요?</a>
+                <button id="LOGIN_BTN" class = "login_btn" type="button">Login</button>
+                <span id="dokak_text">아직 DOKAK 회원이 아니신가요? </span><span class="sign_up_btn">회원가입</span>
+            </form>
+
+        </div>
+</article>
+<article class="join_pg">
+        <div class = "login_wrapper">
+            <div class="login_logo">회원가입</div>
+            <div class="join_close"><img src="{% static 'image/close_btn.png' %}"></div>
+            <form class="login_form">
+                <div>
+                    <span>Email ID</span>
+                </div>
+                <input id="sign_up_email" class = "login_text" type="text" name="id" placeholder="example@naver.com">
+                <div>
+                    <input type="text" id="auth_code_input">
+                    <button type="button" class="auth_code" id="auth_code_ck">인증번호 확인</button>
+                    <button type="button" class="auth_code" id="auth_code_send">인증번호 전송</button>
+                </div>
+                <div class="password_area">
+                    <span>Password</span>
+                </div>
+                <input  id="LOGIN_PW_IN" class = "login_text" type="password" name="pass" placeholder="비밀번호">
+                <span class="password_text">영문 대,소문자/숫자/특수문자 중 2가지 이상 조합, 8~32자</span>
+                <div>
+                    <span>Password Confirm</span>
+                </div>
+                <input  id="LOGIN_PW_CK" class = "login_text" type="password" name="pass_r" placeholder="비밀번호">
+                <span id="password_ck_text" class="password_ck_text">1111</span>
+                <button id="next_btn_one" class="login_btn" type="button">NEXT</button>
+                <span>이미 계정이 있으신가요? </span><span class="sign_in_btn">로그인</span>
+            </form>
+        </div>
+</article>
+<article class="accept_pg">
+        <div class = "accept_wrapper">
+            <div class="login_logo"><img class="accept_icon" src="{% static 'image/user_icons.png' %}"><span class="accept_text">약관동의</span> </div>
+            <div class="accept_close"><img src="{% static 'image/close_btn.png' %}"></div>
+            <div class="accept_ckbox">
+                <div><input id="selectAll" type="checkbox"><span>모두동의</span></div>
+                <div class="under_bar"></div>
+                <div><input id="ser_box" class="otherCheckbox" type="checkbox"><span>{필수}서비스 이용약관 동의</span><img class="service_arrow" src="{% static 'image/arow.png' %}"></div>
+                <div><input id="info_box" class="otherCheckbox" type="checkbox"><span>{필수}개인정보 수집 및 이용에 대한 동의</span><img class="myinfo_arrow" src="{% static 'image/arow.png' %}"></div>
+                <div><input id="age_box" class="otherCheckbox" type="checkbox"><span>{필수}만 14세 이상입니다.</span></div>
+                <div><input class="otherCheckbox" type="checkbox"><span>{선택}이벤트 정보 알림 수신에 동의합니다.</span></div>
+                <div class="info_ser_area">
+                    <span id="service_myinfo">
+                    </span>
+                </div>
+                <button id="next_btn" class="login_btn" type="button">Next</button>
+            </div>
+        </div>
+</article>
+<article class="info_pg">
+        <div class = "info_wrapper">
+            <div class="info_logo"><img class="info_icon" src="{% static 'image/user_icons.png' %}"><span class="info_text">정보입력</span></div>
+            <div class="info_close"><img src="{% static 'image/close_btn.png' %}"></div>
+            <div class="info_area">
+                <div><span>Email ID</span><span id="in_email_text">ddddd@ddddd.dddd</span></div>
+                <div>
+                    <p class="info_texts">이름</p>
+                    <input class="info_input" id="input_name" type="text" placeholder="이름">
+                    <p class="text_info">* 실명으로 입력해주세요.</p>
+                </div>
+                <div>
+                    <p class="info_texts">핸드폰 번호</p>
+                    <input class="info_input" id="input_phone" type="text" placeholder="01000000000">
+                    <p class="text_info">* '-'없이 입력해주세요.</p>
+                </div>
+                <div>
+                    <p class="info_texts">닉네임</p>
+                    <input class="info_input" id="input_nick" type="text" placeholder="이름">
+                    <p id="nick_text" class="text_info">닉네임을 입력해주세요.</p>
+                </div>
+                <button id="info_btn" class="login_btn" type="button">Join</button>
+            </div>
+        </div>
+</article>
+</body>
+</html>

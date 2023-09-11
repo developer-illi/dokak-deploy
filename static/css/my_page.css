@@ -1,0 +1,92 @@
+.content_my_page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_mypage{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    gap: 12px;
+}
+.user_icon_mypage> img{
+    width: 75px;
+}
+.mypage_email{
+    color: #8E8E8E;
+}
+#my_edit_btn{
+    margin-top: 20px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 25px;
+    border-style: none;
+    background-color: #000;
+    box-shadow: 1px 1px 1px 1px #E95718;
+    width: 250px;
+    height: 50px;
+}
+.my_edit_page{
+    margin-top: 100px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    gap: 20px;
+}
+.edit_icon_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.edit_icon_area> img{
+    width: 75px;
+}
+
+.edit_name_area >input, .edit_phone_area> input, .edit_nick_area > input{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 450px;
+    height: 40px;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff;
+}
+.edit_p{
+    font-size: 14px;
+    color: #fff;
+}
+.edit_span{
+    color: #8E8E8E;
+    font-size: 13px;
+}
+#nick_eidt_text{
+    color: #8E8E8E;
+    font-size: 13px;
+}
+#my_edit_save{
+    margin-top: 20px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 25px;
+    border-style: none;
+    background-color: #000;
+    box-shadow: 1px 1px 1px 1px #E95718;
+    width: 250px;
+    height: 50px;
+}
+#edit_text_edit{
+    font-size: 25px;
+}
+#edit_close_btn{
+    width: 20px;
+    margin-left: 100%;
+}
+.edit_close_area{
+    width: 80%;
+}
