@@ -93,8 +93,8 @@ DATABASES = {
         'NAME': 'dokak',                      # Or path to database file if using sqlite3.
         'USER': 'postgres',                      # Not used with sqlite3.
         'PASSWORD': '1235gg',                  # Not used with sqlite3.
-        'HOST': '127.0.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',
+        'HOST': 'https://pgadmin-pgadmin-cgw1f2almffpc7s.sel5.cloudtype.app/',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5050',
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
