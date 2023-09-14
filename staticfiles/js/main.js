@@ -375,7 +375,7 @@ $(function (){
 	var dateObj = new Date();
 	dateObj.setDate(dateObj.getDate() + 1);
 
-	countDownTimer('sample01', dateObj); // 내일까지
+	countDownTimer('sample01', '09/14/2023 09:00 PM'); // 내일까지
 	countDownTimer('sample02', '09/16/2023 00:00 AM'); // 2024년 4월 1일까지, 시간을 표시하려면 01:00 AM과 같은 형식을 사용한다.
 	countDownTimer('sample03', '09/17/2023 00:00 AM'); // 2024년 4월 1일까지
 	countDownTimer('sample04', '09/18/2024 00:00 AM'); // 2024년 4월 1일까지
