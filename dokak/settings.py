@@ -94,7 +94,7 @@ DATABASES = {
         'USER': 'postgres',                      # Not used with sqlite3.
         'PASSWORD': 'dokak0606',                  # Not used with sqlite3.
         'HOST': 'svc.sel5.cloudtype.app',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '31611',
+        'PORT': '32292',
     }
 }
 # DATABASES = {
