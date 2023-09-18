@@ -275,10 +275,15 @@ body{
     padding: 40px;
     padding-left: 20px;
 }
-.card_img > img{
-	border: 1px solid black;
-	border-radius: 150px;
-	width: 280px;
+.card_img_section{
+    width: 280px;
+    height: 280px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+.card_img_section > img{
+	width: 100%;
+    object-fit: cover;
 }
 .card_img > p {
 	color: #fff;

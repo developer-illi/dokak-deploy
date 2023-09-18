@@ -139,7 +139,7 @@
                     </p>
                 </div>
                 <div class="pre-list-trash">
-                    <p class="list_items"><img src="{% static 'image/trash.png' %}"></p>
+                    <p class="list_items"><img src="{% static 'image/trash.png' %}" onclick="itemdel({{ Lec.pk }})"></p>
                 </div>
             </div>
         {% endfor %}

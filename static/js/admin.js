@@ -137,3 +137,25 @@ function preview_ch(id){
         }
     });
 }
+function itemdel(pk){
+    var pk = pk;
+    if(!confirm("정말 삭제 하시겠습니까?")){
+        alert('취소 되었습니다.');
+    }else {
+        $.ajax({
+            url:'item_del',
+            type:'POST',
+            cache :false,
+            async:false,
+            dataType:'JSON',
+            data:{
+                'pk':pk
+            },
+            success:function (response){
+                alert(response.msg);
+                location.href = '/admin';
+            }
+        });
+    }
+
+}

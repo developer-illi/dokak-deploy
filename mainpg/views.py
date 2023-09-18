@@ -238,8 +238,8 @@ def lecture_add(request):
             lec.save()
         except :
             print('err')
-        dic = {}
-    return HttpResponse(json.dumps(dic))
+
+    return redirect('admin')
 
 @csrf_exempt
 def preview_ck(request):
@@ -255,4 +255,12 @@ def preview_ck(request):
         'text':lecture.lecture_text,
         'url':lecture.urls
     }
+    return HttpResponse(json.dumps(arg), content_type='application/json')
+
+@csrf_exempt
+def item_del(request):
+    item = request.POST['pk']
+    del_item = Lecture.objects.get(pk=item)
+    del_item.delete()
+    arg = {'msg':'삭제 되었습니다'}
     return HttpResponse(json.dumps(arg), content_type='application/json')

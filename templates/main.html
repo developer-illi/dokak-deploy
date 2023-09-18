@@ -72,7 +72,9 @@
                         {% if Lec.live == 1 or Lec.live == 2 %}
                             <div class="swiper-slide img_area">
                                 <div class="card_img">
-                                    <img src="{{ Lec.title_img.url }}">
+                                    <div class="card_img_section">
+                                        <img src="{{ Lec.title_img.url }}">
+                                    </div>
                                     <p class="tea_title">{{ Lec.company }}</p>
                                     <p class="tea_name">{{ Lec.teacher }}</p>
                                 </div>

@@ -32,6 +32,7 @@ urlpatterns = [
     path('myinfo_ch', main_v.myinfo_ch, name='myinfo_ch'),
     path('lecture_add', main_v.lecture_add, name='lecture_add'),
     path('preview_ck', main_v.preview_ck, name='preview_ck'),
+    path('item_del', main_v.item_del, name='item_del'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
