@@ -8,19 +8,55 @@ from random import randint
 import string
 import random
 from mainpg.models import *
+from urllib.parse import quote, unquote
+from datetime import datetime
 
 # Create your views here.
 def first_page(request):
+    now_time = datetime.now()
+    lecture = Lecture.objects.all()
+    for lecture_time_set in lecture:
+        compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
+        compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
+        if now_time > compare_time_one:
+            if now_time > compare_time_two:
+                lecture_time_set.live = 3
+            else:
+                lecture_time_set.live = 2
+        elif now_time < compare_time_one:
+            pass
+        lecture_time_set.save()
     try:
         user = request.session['user']
     except:
         user = None
-    test = 'fewfwfw'
-    arg = {'username' : user, 'test':test}
+    arg = {'username' : user, 'lecture':lecture}
     return render(request, 'main.html', arg)
 def admin(request):
-    arg = {}
-    return render(request, 'admin.html',arg)
+    if request.session['user'] == 'admin':
+        now_time = datetime.now()
+        lecture = Lecture.objects.all()
+        for lecture_time_set in lecture:
+            compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
+            compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
+            if now_time > compare_time_one:
+                if now_time > compare_time_two:
+                    lecture_time_set.live = 3
+                else:
+                    lecture_time_set.live = 2
+            elif now_time < compare_time_one:
+                pass
+            lecture_time_set.save()
+        arg = {'lecture':lecture}
+        return render(request, 'admin.html',arg)
+    else:
+        try:
+            user = request.session['user']
+        except:
+            user = None
+        lecture = Lecture.objects.all()
+        arg = {'username': user, 'lecture': lecture}
+        return render(request, 'main.html', arg)
 def test(request):
     arg = {}
     return render(request, 'test.html', arg)
@@ -189,13 +225,30 @@ def lecture_add(request):
         live_time = request.POST['live_time']
         lecture_text = request.POST['lecture_text']
         run_time = request.POST['run_time']
+        url = request.POST['urls']
         title_img = request.FILES.get('title_img')
 
         try:
             lec = Lecture.objects.create(title=title, title_img=title_img, company=company, teacher=teacher,
-                                         live_time=live_time, lecture_text=lecture_text, runnig_time=run_time)
+                                         live_time=live_time, lecture_text=lecture_text, runnig_time=run_time,urls=url)
             lec.save()
         except :
             print('err')
         dic = {}
     return HttpResponse(json.dumps(dic))
+
+@csrf_exempt
+def preview_ck(request):
+    pk = request.POST['pk']
+    lecture = Lecture.objects.get(pk=pk)
+    img_urls = quote(lecture.title_img.url)
+
+    arg = {
+        'title':lecture.title,
+        'img':img_urls,
+        'company':lecture.company,
+        'name':lecture.teacher,
+        'text':lecture.lecture_text,
+        'url':lecture.urls
+    }
+    return HttpResponse(json.dumps(arg), content_type='application/json')

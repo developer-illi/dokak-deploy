@@ -353,7 +353,7 @@ $(function (){
 
 			if (distDt < 0) {
 				clearInterval(timer);
-				document.getElementById(id).textContent = '해당 이벤트가 종료 되었습니다!';
+				document.getElementById(id).textContent = '강의가 시작 되었습니다!';
 				return;
 			}
 
@@ -374,12 +374,6 @@ $(function (){
 
 	var dateObj = new Date();
 	dateObj.setDate(dateObj.getDate() + 1);
-
-	countDownTimer('sample01', dateObj); // 내일까지
-	countDownTimer('sample02', '09/13/2023 00:00 AM'); // 2024년 4월 1일까지, 시간을 표시하려면 01:00 AM과 같은 형식을 사용한다.
-	countDownTimer('sample03', '09/14/2023 00:00 AM'); // 2024년 4월 1일까지
-	countDownTimer('sample04', '09/15/2024 00:00 AM'); // 2024년 4월 1일까지
-	countDownTimer('sample05', '10/01/2024'); // 2024년 4월 1일까지
 window.onload = function() {
     countDownTimer();
 };

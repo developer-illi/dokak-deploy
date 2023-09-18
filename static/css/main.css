@@ -190,7 +190,6 @@ body{
 }
 .last_lecture_slider{
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
@@ -198,7 +197,6 @@ body{
 .last_lecture_item{
     max-width: 380px;
     min-width: 380px;
-
 }
                 /*footer section*/
 .footer{
@@ -316,6 +314,8 @@ body{
 .teaching_title{
     font-weight: bold;
     font-size:40px;
+    text-size-adjust: 100%;
+    white-space : nowrap;
 }
 .teaching_title_text{
 	display: flex;

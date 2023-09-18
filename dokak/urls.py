@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainpg import views as main_v
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('',  main_v.first_page, name='fir_page'),
     path('test', main_v.test, name='test'),
@@ -30,4 +31,7 @@ urlpatterns = [
     path('sign_up', main_v.sign_up, name='sign_up'),
     path('myinfo_ch', main_v.myinfo_ch, name='myinfo_ch'),
     path('lecture_add', main_v.lecture_add, name='lecture_add'),
+    path('preview_ck', main_v.preview_ck, name='preview_ck'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

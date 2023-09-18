@@ -3,14 +3,14 @@ $(document).ready(function() {
     var swiper = new Swiper(".slider1", {
         initialSlide: 1,
         spaceBetween: 8,
-        speed: 2000,
+        speed: 5000,
         effect: "coverflow",
         autoResize:false,
         centeredSlides:true,
         allowTouchMove : true,
         loop: !1,
         autoplay:{
-            delay:2500,
+            delay:8000,
             disableOnInteraction: false,
         },
         autoplayDisableOnInteraction:true,
@@ -40,7 +40,7 @@ $(document).ready(function() {
         speed: 2500,
         autoResize:false,
         centeredSlides:true,
-        slidesPerView: 3,
+        slidesPerView: 2.8,
         slideToClickedSlide: !0,
         loop: !1,
         observe:true,
@@ -48,10 +48,10 @@ $(document).ready(function() {
         autoplayDisableOnInteraction:true,
         breakpoints: {
             480: {
+                effect: "slider",
                 slidesPerView: 1,
-                spaceBetween: 0
+                spaceBetween: 1
             }
         }
     });
-
 });

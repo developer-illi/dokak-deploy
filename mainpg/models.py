@@ -31,8 +31,8 @@ class Lecture(models.Model):
     live_time = models.CharField(max_length=1000, null=False)
     lecture_text = models.CharField(max_length=10000, null=False)
     runnig_time = models.CharField(max_length=1000, null=False)
-    live = models.BooleanField(default=True)
-
+    urls = models.CharField(max_length=1000, null=True, default=None)
+    live = models.IntegerField(null=True, default=1)
 
     class Meta:
         db_table = 'Lecture'

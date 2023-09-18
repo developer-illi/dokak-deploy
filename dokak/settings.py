@@ -34,7 +34,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SECRET_KEY = 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 # AUTH_USER_MODEL = 'mainpg.User'
@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'dokak.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dokak',                      # Or path to database file if using sqlite3.
+        'NAME': 'dokak2',                      # Or path to database file if using sqlite3.
         'USER': 'postgres',                      # Not used with sqlite3.
         'PASSWORD': '1235',                  # Not used with sqlite3.
         'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -134,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

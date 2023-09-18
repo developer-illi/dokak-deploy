@@ -14,11 +14,13 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
     <script type="text/javascript">
-        var test_tie = "{{ test }}";
         function page_open(url){
             var url = url
             window.open(url,'_blank')
         }
+        {% for Lec_time in lecture %}
+            countDownTimer('time{{ Lec_time.pk }}', '{{ Lec_time.live_time }}');
+        {% endfor %}
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,23 +68,23 @@
       <!-- Additional required wrapper-->
                 <div class="swiper-wrapper">
         <!-- Slides-->
-                    <div class="swiper-slide img_area">
-                        <div class="card_img">
-                            <img src="{% static 'image/live_cc.jpeg' %}">
-                            <p class="tea_title">마케팅독사</p>
-                            <p class="tea_name">김종민</p>
-                        </div>
-                        <div class="teaching_title_text">
-                            <p class="teaching_title">"인스타그램 제대로 알아가기"</p>
-                            <p class="teaching_text">인스타그램하면 가장 먼저 떠오르는 것이 무엇입니까?
-                                팔로워늘리기, 인기게시물 상단 노출, 계정 활성화 등등 온갖 마케팅 작업에 관련된 것만 떠오릅니다.
-                                인스타그램의 지향성을 파괴하는 작업! 이제 멈추세요.
-                                이제 김종민 독사 함께 제대로 된 계정만들기 시작해보세요.</p>
-                            <span class="last_time_set" id="sample01"></span>
-                            <div class="live_btn" id="https://whaleon.us/o/ItnAnO/6d2f19d350424d4892041ae53c23f4ef" onclick="page_open('https://whaleon.us/o/ItnAnO/6d2f19d350424d4892041ae53c23f4ef')">Go Live</div>
-                        </div>
-                    </div>
-
+                    {% for Lec in lecture %}
+                        {% if Lec.live == 1 or Lec.live == 2 %}
+                            <div class="swiper-slide img_area">
+                                <div class="card_img">
+                                    <img src="{{ Lec.title_img.url }}">
+                                    <p class="tea_title">{{ Lec.company }}</p>
+                                    <p class="tea_name">{{ Lec.teacher }}</p>
+                                </div>
+                                <div class="teaching_title_text">
+                                    <p class="teaching_title">{{ Lec.title }}</p>
+                                    <p class="teaching_text">{{ Lec.lecture_text }}</p>
+                                    <span class="last_time_set" id="time{{ Lec.pk }}"></span>
+                                    <div class="live_btn" id="{{ Lec.urls }}" onclick="page_open('{{ Lec.urls }}')">Go Live</div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -102,27 +104,39 @@
             <div class="last_lecture_box">
                 <div class="swiper-container last_lecture_content">
                     <div class="swiper-wrapper last_lecture_slider">{# 슬라이드 형태 쇼 3 좌우 0.1? #}
-                        <div class="swiper-slide last_lecture_item fir_item">
-                            <div class="lecure_img_area">
-                                <img src="{% static 'image/artist_live_1.png' %}">
-                                <p class="lecture_title">❝독학❞오리엔테이션</p>
-                                <p>독학 | 전준우원장</p>
-                            </div>
-                        </div>{# 추후 반복 붙여야함 #}
-                        <div class="swiper-slide last_lecture_item">
-                            <div class="lecure_img_area">
-                                <img src="{% static 'image/artist_live_1.png' %}">
-                                <p class="lecture_title">❝독학❞오리엔테이션</p>
-                                <p>독학 | 전준우원장</p>
-                            </div>
-                        </div>{# 추후 반복 붙여야함 #}
-                        <div class="swiper-slide last_lecture_item">
-                            <div class="lecure_img_area">
-                                <img src="{% static 'image/artist_live_1.png' %}">
-                                <p class="lecture_title">❝독학❞오리엔테이션</p>
-                                <p>독학 | 전준우원장</p>
-                            </div>
-                        </div>{# 추후 반복 붙여야함 #}
+                        {% for Lecs in lecture %}
+                            {% if Lecs.live == 3 %}
+                                <div class="swiper-slide last_lecture_item fir_item">
+                                    <div class="lecure_img_area">
+                                        <img src="{{ Lecs.title_img.url }}">
+                                        <p class="lecture_title">{{ Lecs.title }}</p>
+                                        <p>{{ Lecs.company }} | {{ Lecs.teacher }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% for Lecs in lecture %}
+                            {% if Lecs.live == 3 %}
+                                <div class="swiper-slide last_lecture_item fir_item">
+                                    <div class="lecure_img_area">
+                                        <img src="{{ Lecs.title_img.url }}">
+                                        <p class="lecture_title">{{ Lecs.title }}</p>
+                                        <p>{{ Lecs.company }} | {{ Lecs.teacher }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% for Lecs in lecture %}
+                            {% if Lecs.live == 3 %}
+                                <div class="swiper-slide last_lecture_item fir_item">
+                                    <div class="lecure_img_area">
+                                        <img src="{{ Lecs.title_img.url }}">
+                                        <p class="lecture_title">{{ Lecs.title }}</p>
+                                        <p>{{ Lecs.company }} | {{ Lecs.teacher }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
