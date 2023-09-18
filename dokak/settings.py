@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import smtplib
 from pathlib import Path
 import os
 import dj_database_url
@@ -16,11 +17,12 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jin@illi.kr'
-EMAIL_HOST_PASSWORD = 'pqztkrnfvljqsqdd'
+# EMAIL_HOST_PASSWORD = 'pqztkrnfvljqsqdd'
+EMAIL_HOST_PASSWORD = 'hcrelqgnwqfqxgdl'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = False
+EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL =EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_DIR = os.path.dirname(BASE_DIR)
 MEDIA_DIR = os.path.join(ROOT_DIR, 'media')
@@ -34,7 +36,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SECRET_KEY = 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 # AUTH_USER_MODEL = 'mainpg.User'

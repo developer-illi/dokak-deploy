@@ -10,6 +10,10 @@ import random
 from mainpg.models import *
 from urllib.parse import quote, unquote
 from datetime import datetime
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 
 # Create your views here.
 def first_page(request):
@@ -91,9 +95,7 @@ def generate_random_code():
     return code
 @csrf_exempt
 def email_sends(request):
-    print('222')
     email = request.POST['email']
-    print('dd')
     try:
         user_cker = User_model.objects.get(email=email)
         msg = '이미 회원가입이 되어있습니다.'
@@ -131,12 +133,14 @@ def email_send(email_to):
     </body>
     </html>
     """
-    mail_to = 'kylie@illi.kr'
+    mail_to = 'jin@illi.kr'
     email = EmailMessage(mail_title, email_body, mail_to, [email_to])
     email.content_subtype = 'html'
+    print('send_to')
     email.send()
     code_add = Auth_code_ck.objects.create(email=email_to, auth_code=code)
     code_add.save()
+
     arg = {'success': True, 'msg': msg}
     return HttpResponse(json.dumps(arg), content_type='application/json')
 

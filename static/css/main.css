@@ -473,7 +473,7 @@ body{
     height: 32px;
     background-color: #000;
     border: 1px solid #E95718;
-    margin-left: 6px;
+    margin-left: 30px;
 }
 .password_area{
     margin-top: 14px;
@@ -649,9 +649,7 @@ body{
 }
 #auth_code_ck{
     display: none;
-    top: 35%;
+    top: 38%;
     right: 5%;
 }
-
-
 /**/

@@ -204,17 +204,17 @@ input[type=file]::file-selector-button {
     font-weight: bold;
 }
 .pre-list{
-    margin-top: 40px;
+    margin-top: 5px;
     display: flex;
     width: 1060px;
     align-items: center;
     justify-content: center;
 }
 .list_items{
-    font-size: 17px;
+    font-size: 14px;
 }
 .pre-list{
-    font-size: 20px;
+    font-size: 17px;
 }
 .pre-list-no{
     width: 82px;

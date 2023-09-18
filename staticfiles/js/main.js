@@ -175,7 +175,10 @@ $(function (){
         });
     });
     $('#auth_code_send').click(function (){
+        var send_btn = document.getElementById('auth_code_send');
         var email = $('#sign_up_email').val();
+        alert('인증 번호 전송중 입니다.');
+        send_btn.disabled = true;
         if(isValidEmail(email)){
             $.ajax({
                 url:'email_send',
