@@ -18,7 +18,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jin@illi.kr'
 EMAIL_HOST_PASSWORD = 'pqztkrnfvljqsqdd'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL =EMAIL_HOST_USER
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,26 +87,26 @@ WSGI_APPLICATION = 'dokak.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#         'NAME': 'dokak',                      # Or path to database file if using sqlite3.
-#         'USER': 'postgres',                      # Not used with sqlite3.
-#         'PASSWORD': 'dokak0606',                  # Not used with sqlite3.
-#         'HOST': 'svc.sel5.cloudtype.app',                      # Set to empty string for localhost. Not used with sqlite3.
-#         'PORT': '31611',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dokak2',                      # Or path to database file if using sqlite3.
+        'NAME': 'dokak',                      # Or path to database file if using sqlite3.
         'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': '1235',                  # Not used with sqlite3.
-        'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',
+        'PASSWORD': 'dokak0606',                  # Not used with sqlite3.
+        'HOST': 'svc.sel5.cloudtype.app',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '31611',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'dokak2',                      # Or path to database file if using sqlite3.
+#         'USER': 'postgres',                      # Not used with sqlite3.
+#         'PASSWORD': '1235',                  # Not used with sqlite3.
+#         'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
+#         'PORT': '5432',
+#     }
+# }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 

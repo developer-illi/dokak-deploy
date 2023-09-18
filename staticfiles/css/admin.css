@@ -1,0 +1,263 @@
+input.underline{
+    color: #fff;
+    background-color: #000;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width:1px;
+}
+textarea.border{
+    color: #fff;
+    background-color: #000;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width:1px;
+}
+.admin_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.admin_form{
+    color: #fff;
+    width: 440px;
+    height: 300px;
+}
+.lecture_area{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+.input_one{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.numtwo{
+    margin-left: 10px;
+}
+.input_two{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.input_area_double{
+    display: flex;
+}
+.input_one > div{
+    width: 50px;
+}
+.input_two > div{
+    width: 50px;
+}
+.input_one > input{
+    width: 360px;
+    height: 23px;
+}
+.input_two > input{
+    width: 145px;
+    height: 23px;
+}
+#lecture_text{
+    width: 366px;
+    height: 110px;
+    resize: none;
+}
+#reset_btn{
+    background-color: #000;
+    color: #fff;
+    width: 84px;
+    height: 31px;
+    border-radius: 25px;
+    border: 1px solid #FF6422;
+}
+#submit_btn{
+    margin-left: 10px;
+    background-color: #FF6712;
+    color: #fff;
+    width: 84px;
+    height: 31px;
+    border-radius: 25px;
+    border: 1px solid #FF6422;
+}
+#admin_btn_area{
+    margin-left: 244px;
+}
+.admin_preview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0.5px solid rgba(128, 128, 128, 0.3);
+    border-left: 0.5px solid rgba(128, 128, 128, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.6);
+    border-right: 1px solid rgba(128, 128, 128, 0.6);
+    width: 630px;
+    height: 300px;
+    gap: 60px;
+}
+.admin-pre-notice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    height: 252px;
+    gap: 5px;
+}
+.admin-pre-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    width: 310px;
+    height: 252px;
+    gap: 10px;
+}
+.pre-img-section{
+    width: 190px;
+    height: 190px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+.pre-img-section > img{
+    width: 100%;
+    object-fit: cover;
+}
+.pre-img-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.pre-img-text >div{
+    color: #fff;
+}
+.pre-name{
+    font-size: 16px;
+}
+.pre-title > p {
+    font-size: 28px;
+    font-weight: bold;
+}
+.pre-intro{
+    margin-top: 8px;
+    height: 80px;
+}
+.pre-intro > p {
+    font-size: 13px;
+}
+.pre-time{
+    margin-left: 150px;
+    margin-top: 20px;
+}
+.pre-time > p {
+    font-size: 17px;
+    color: #E95718;
+}
+.pre-btn{
+    margin-left: 133px;
+    margin-top: -10px;
+}
+.pre-btn > div {
+    margin: 0 auto;
+    background-color: #E95718;
+    font-size: 16px;
+    width: 173px;
+    height: 34px;
+    align-items: center;
+}
+.pre-btn > div > p {
+    margin-left: 59px;
+    padding-top: 8px;
+}
+input[type=file]::file-selector-button {
+    width: 100px;
+    height: 20px;
+    background: #FF6712;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.lecture_list{
+    color: #fff;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pre-logo > img{
+    width: 75px;
+}
+.pre-list-title{
+    margin-top: 5px;
+}
+.pre-list-title > p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.pre-list{
+    margin-top: 40px;
+    display: flex;
+    width: 1060px;
+    align-items: center;
+    justify-content: center;
+}
+.list_items{
+    font-size: 17px;
+}
+.pre-list{
+    font-size: 20px;
+}
+.pre-list-no{
+    width: 82px;
+    min-width: 82px;
+    text-align: center;
+    height: 33px;
+    min-height: 33px;
+}
+.pre-list-titles{
+    width: 486px;
+    min-width: 486px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    min-height: 33px;
+}
+.pre-list-name{
+    width: 165px;
+    min-width: 165px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    min-height: 33px;
+}
+.pre-list-start{
+    width: 201px;
+    min-width: 201px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    min-height: 33px;
+}
+.pre-list-status{
+    width: 105px;
+    min-width: 105px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    min-height: 33px;
+}
+.pre-list-trash{
+    width: 38px;
+    min-width: 38px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    min-height: 33px;
+}
+.list_items > img{
+    width: 20px;
+}
