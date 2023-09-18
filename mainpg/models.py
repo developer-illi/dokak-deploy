@@ -22,3 +22,21 @@ class User_model(models.Model):
 
     def __str__(self):
         return str(self.email)
+
+class Lecture(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    title_img = models.ImageField(upload_to='lecture_img')
+    company = models.CharField(max_length=50, null=False)
+    teacher = models.CharField(max_length=50, null=False)
+    live_time = models.CharField(max_length=1000, null=False)
+    lecture_text = models.CharField(max_length=10000, null=False)
+    runnig_time = models.CharField(max_length=1000, null=False)
+    live = models.BooleanField(default=True)
+
+
+    class Meta:
+        db_table = 'Lecture'
+
+    def __str__(self):
+        return str(self.title)
+

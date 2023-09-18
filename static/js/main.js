@@ -382,7 +382,6 @@ $(function (){
 	countDownTimer('sample05', '10/01/2024'); // 2024년 4월 1일까지
 window.onload = function() {
     countDownTimer();
-    var test_msg = 'dddd'
 };
 document.querySelectorAll('.live_btn').forEach(div => {
             div.addEventListener('click', function() {

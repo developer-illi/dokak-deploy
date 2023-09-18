@@ -9,6 +9,10 @@ $(document).ready(function() {
         centeredSlides:true,
         allowTouchMove : true,
         loop: !1,
+        autoplay:{
+            delay:2500,
+            disableOnInteraction: false,
+        },
         autoplayDisableOnInteraction:true,
         coverflow: {
             rotate: 0,

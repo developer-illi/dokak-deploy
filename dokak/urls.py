@@ -21,6 +21,7 @@ from mainpg import views as main_v
 urlpatterns = [
     path('',  main_v.first_page, name='fir_page'),
     path('test', main_v.test, name='test'),
+    path('admin', main_v.admin, name='admin'),
     path('my_page', main_v.my_page, name='my_page'),
     path('login', main_v.login, name='login'),
     path('email_send', main_v.email_sends, name='email_send'),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('nick_ck', main_v.nick_ck, name='nick_ck'),
     path('sign_up', main_v.sign_up, name='sign_up'),
     path('myinfo_ch', main_v.myinfo_ch, name='myinfo_ch'),
+    path('lecture_add', main_v.lecture_add, name='lecture_add'),
 ]

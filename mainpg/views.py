@@ -15,9 +15,12 @@ def first_page(request):
         user = request.session['user']
     except:
         user = None
-    arg = {'username' : user}
+    test = 'fewfwfw'
+    arg = {'username' : user, 'test':test}
     return render(request, 'main.html', arg)
-
+def admin(request):
+    arg = {}
+    return render(request, 'admin.html',arg)
 def test(request):
     arg = {}
     return render(request, 'test.html', arg)
@@ -175,3 +178,24 @@ def myinfo_ch(request):
 
     arg = {'success': True, 'msg': msg, 'ck_tf': ck_tf}
     return HttpResponse(json.dumps(arg), content_type='application/json')
+
+
+@csrf_exempt
+def lecture_add(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        company = request.POST['company']
+        teacher = request.POST['teacher']
+        live_time = request.POST['live_time']
+        lecture_text = request.POST['lecture_text']
+        run_time = request.POST['run_time']
+        title_img = request.FILES.get('title_img')
+
+        try:
+            lec = Lecture.objects.create(title=title, title_img=title_img, company=company, teacher=teacher,
+                                         live_time=live_time, lecture_text=lecture_text, runnig_time=run_time)
+            lec.save()
+        except :
+            print('err')
+        dic = {}
+    return HttpResponse(json.dumps(dic))

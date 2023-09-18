@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}">
+    <link rel='stylesheet' type="text/css" href='{% static 'css/swiper.min.css' %}'>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+    <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js'></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="{% static 'image/logo.png' %}">
+    <title>독학_관리자</title>
+</head>
+<body>
+    <div class="lecture_list">
+
+    </div>
+    <form class="lecture_area" method="post" action="{% url 'lecture_add' %}" enctype="multipart/form-data">
+        <div>
+            <span>제목</span>
+            <input type="text" id="title" name="title">
+        </div>
+        <div>
+            <span>회사</span>
+            <input type="text" id="company" name="company">
+        </div>
+        <div>
+            <span>이미지 사진</span>
+            <input type="file" id ="title_img" name="title_img">
+        </div>
+        <div>
+            <span>강사 명</span>
+            <input type="text" id="teacher" name="teacher">
+        </div>
+        <div>
+            <span>강의 시작 시간</span>
+            <input type="date" id="live_time" name="live_time">
+        </div>
+        <div>
+            <span>강의 러닝 타임</span>
+            <input type="date" id="run_time" name="run_time">
+        </div>
+        <div>
+            <span>강좌 설명</span>
+            <textarea id="lecture_text" name="lecture_text"></textarea>
+        </div>
+
+
+        <input type="submit">
+    </form>
+</body>
+</html>
