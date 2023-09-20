@@ -268,7 +268,7 @@ input[type=file]::file-selector-button {
     width: 20px;
 }
 .admin_login_area{
-    margin-top: 100px;
+    margin-top: 140px;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -276,7 +276,7 @@ input[type=file]::file-selector-button {
     gap: 10px;
 }
 .admin_login_win{
-    margin-top: 30px;
+    margin-top: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -290,10 +290,10 @@ input[type=file]::file-selector-button {
     text-align: center;
 }
 .admin_login_btn > button{
-    margin-top: 32px;
+    margin-top: 7px;
     font-size: 20px;
     width: 100px;
-    height: 74px;
+    height: 48px;
     color: #fff;
     background-color: #FF6422;
 }
