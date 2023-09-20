@@ -1,3 +1,4 @@
+
 input.underline{
     color: #fff;
     background-color: #000;
@@ -5,6 +6,7 @@ input.underline{
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width:1px;
+    margin-bottom: 4px;
 }
 textarea.border{
     color: #fff;
@@ -98,6 +100,7 @@ textarea.border{
     width: 630px;
     height: 300px;
     gap: 60px;
+    margin-top: 55px;
 }
 .admin-pre-notice{
     display: flex;
@@ -123,6 +126,7 @@ textarea.border{
     height: 190px;
     border-radius: 70%;
     overflow: hidden;
+    border : 1px solid rgba(255, 255, 255, 10%);
 }
 .pre-img-section > img{
     width: 100%;
@@ -159,6 +163,7 @@ textarea.border{
 .pre-time > p {
     font-size: 17px;
     color: #E95718;
+    margin-bottom: 10px;
 }
 .pre-btn{
     margin-left: 133px;
@@ -198,6 +203,7 @@ input[type=file]::file-selector-button {
 }
 .pre-list-title{
     margin-top: 5px;
+    margin-bottom: 35px;
 }
 .pre-list-title > p{
     font-size: 20px;
@@ -260,4 +266,34 @@ input[type=file]::file-selector-button {
 }
 .list_items > img{
     width: 20px;
+}
+.admin_login_area{
+    margin-top: 100px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin_login_win{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap : 10px;
+}
+.admin_login_win > input{
+    width: 150px;
+}
+.admin_login_win >span{
+    width: 50px;
+    text-align: center;
+}
+.admin_login_btn > button{
+    margin-top: 20px;
+    font-size: 20px;
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    background-color: #FF6422;
 }

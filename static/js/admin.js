@@ -1,4 +1,31 @@
 $(function (){
+    $('#admin_lg_btn').click(function (){
+       var admin_id = $('#admin_id').val();
+       var admin_pw = $('#admin_pw').val();
+       $.ajax({
+            url:'admin_login',
+            type:'POST',
+            cache :false,
+            // contentType: 'application/json; charset=utf-8',
+            async:false,
+            dataType:'JSON',
+            data:{
+                'id':admin_id,
+                'pw':admin_pw,
+            },
+            success:function (response){
+                alert(response.msg);
+                if(response.ck == true){
+                    location.href = 'admin';
+                }else {
+                    location.href = '/';
+                }
+            },
+           error:function (err){
+               alert('아이디 또는 비밀번호를 확인해주세요.');
+           }
+       });
+    });
     var form = document.getElementById('lecture_form');
     var submitButton = form.querySelector('button[type="submit"]');
 
@@ -11,12 +38,12 @@ $(function (){
         var titleInput = form.querySelector('input[name="title"]');
         var teacherInput = form.querySelector('input[name="teacher"]');
         var companyInput = form.querySelector('input[name="company"]');
-        var liveInput = form.querySelector('input[name="live_time"]');
-        var runInput = form.querySelector('input[name="run_time"]');
-        var textInput = form.querySelector('input[name="lecture_text"]');
-        // var imgInput = form.querySelector('input[name="title_img"]');
+        var liveInput = form.querySelector('input[name="live_date"]');
+        var live_timeInput = form.querySelector('input[name="live_time"]');
+        var runInput = form.querySelector('input[name="run_date"]');
+        var run_timeInput = form.querySelector('input[name="run_time"]');
         var urlsInput = form.querySelector('input[name="urls"]');
-
+        alert('ttt')
         if (titleInput.value.trim() === '') {
             alert('제목을 입력해주세요.');
             titleInput.focus();
@@ -33,12 +60,12 @@ $(function (){
             companyInput.focus();
             return false;
         }
-        if (liveInput.value.trim() === '') {
+        if (liveInput.value.trim() === '' && live_timeInput.value.trim() === '') {
             alert('강의 시작 시간을 입력해주세요.');
             liveInput.focus();
             return false;
         }
-        if (runInput.value.trim() === '') {
+        if (runInput.value.trim() === '' && run_timeInput.value.trim() === '') {
             alert('강의 종료 시간을 입력해주세요.');
             runInput.focus();
             return false;
@@ -49,6 +76,7 @@ $(function (){
             return false;
         }
         form.submit();
+        alert('test');
     // 유효성 검사가 통과되면 폼을 제출합니다.
     // 여기에 서버로 데이터를 보내는 등의 추가 작업을 수행할 수 있습니다.
     // form.submit(); // 실제로 폼을 제출합니다.
@@ -157,5 +185,58 @@ function itemdel(pk){
             }
         });
     }
+}
+//Date 객체를 받아 week number를 반환
+function getWeekFromISODate(dt) {
+	dt.setHours(0,0,0,0);
+	dt.setDate(dt.getDate() + 3 - (dt.getDay() + 6) % 7);
+	var week1 = new Date(dt.getFullYear(), 0, 4);
 
+	var weekNumber = 1 + Math.round(((dt.getTime() - week1.getTime())/ 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+
+	return dt.getFullYear() +'-W'+ weekNumber;
+}
+
+// YYYY-W00 형태의 ISO 8601 week number를 받아 해당 주의 월요일 Date 객체를 반환
+function getStartDateFromISOWeek(ISOweek) {
+	var y = parseInt(ISOweek.substring(0, 4));
+	var w = parseInt(ISOweek.substring(6, 8));
+
+	var simpleDate = new Date(y, 0, 1 + (w - 1) * 7);
+	var dayOfWeek = simpleDate.getDay();
+	var ISOweekStart = simpleDate;
+
+	if (dayOfWeek <= 4) {
+		ISOweekStart.setDate(simpleDate.getDate() - simpleDate.getDay() + 1);
+	} else {
+		ISOweekStart.setDate(simpleDate.getDate() + 8 - simpleDate.getDay());
+	}
+
+	return ISOweekStart;
+}
+function date_ch(date){
+    var inputDate = new Date(date);
+    // 원하는 형식으로 날짜 포맷
+    var formattedDate = (inputDate.getMonth() + 1).toString().padStart(2, '0') + '/' + inputDate.getDate().toString().padStart(2, '0') + '/' + inputDate.getFullYear();
+    return formattedDate;
+}
+function time_ch(time){
+    var parts = time.split(":");
+    var hours = parseInt(parts[0]);
+    var minutes = parts[1];
+
+    // AM 또는 PM 설정
+    var amOrPm = hours >= 12 ? "PM" : "AM";
+
+    // 12시간 형식으로 변경
+    if (hours > 12) {
+      hours -= 12;
+    }
+
+    // 시간을 0으로 시작하는 두 자리 문자열로 변환
+    hours = hours.toString().padStart(2, '0');
+
+    // 변환된 값을 합쳐서 최종 문자열 생성
+    var formattedTime = hours + ":" + minutes + " " + amOrPm;
+    return formattedTime;
 }

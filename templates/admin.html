@@ -48,7 +48,10 @@
                     </div>
                     <div class="input_two numtwo">
                         <div><span>강의 시작</span></div>
-                        <input class="underline" type="text" id="live_time" name="live_time" placeholder="MM/DD/YYYY 09:00 PM">
+                        <div class="input_times">
+                            <input class="underline" type="date" id="live_date" name="live_date">
+                            <input class="underline" type="time" id="live_time" name="live_time">
+                        </div>
                     </div>
                 </div>
                 <div class="input_area_double">
@@ -58,7 +61,10 @@
                     </div>
                     <div class="input_two numtwo">
                         <div><span>강의 종료</span></div>
-                        <input class="underline" type="text" id="run_time" name="run_time" placeholder="MM/DD/YYYY 11:00 PM">
+                        <div class="input_times">
+                            <input class="underline" type="date" id="run_date" name="run_date">
+                            <input class="underline" type="time" id="run_time" name="run_time">
+                        </div>
                     </div>
                 </div>
                 <div class="input_area_one">
@@ -96,17 +102,15 @@
 
                 </div>
                 <div class="pre-img-text">
-                    <div id="pre_company">디비노뷰티랩</div>
-                    <div class="pre-name" id="pre_name">전준우</div>
+                    <div id="pre_company">소속을 입력해주세요</div>
+                    <div class="pre-name" id="pre_name">강사명을 입력해주세요</div>
                 </div>
             </div>
             <div class="admin-pre-content">
-                <div class="pre-title"><p id="pre_title">“독학 반영구 시작하기”</p></div>
+                <div class="pre-title"><p id="pre_title">“Title을 입력해주세요”</p></div>
                 <div class="pre-intro">
                     <p id="pre_intro">
-                        어떻게 하면 반영구 독학으로 시작할 수 있을까요?
-                        전준우 원장이 알려주는 반영구로 성공하는 방법
-                        DOKAK 라이브에서 알려드립니다!
+                        내용을 입력해 주세요
                     </p>
                 </div>
                 <div class="pre-time"><p>00일 00:00:00 남음</p></div>
@@ -123,7 +127,7 @@
             <div class="pre-list-name"><p>강사명</p></div>
             <div class="pre-list-start"><p>강의시작</p></div>
             <div class="pre-list-status"><p>상태</p></div>
-            <div class="pre-list-trash"><p>&bsolb;</p></div>
+            <div class="pre-list-trash"><p>삭제</p></div>
         </div>
         {% for Lec in lecture %}
             <div class="pre-list list_items" onclick="preview_ch({{ Lec.pk }});">

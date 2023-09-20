@@ -19,9 +19,14 @@ from email.mime.text import MIMEText
 def first_page(request):
     now_time = datetime.now()
     lecture = Lecture.objects.all()
+
     for lecture_time_set in lecture:
-        compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
-        compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
+        try:
+            compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
+            compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
+        except:
+            pass
+
         if now_time > compare_time_one:
             if now_time > compare_time_two:
                 lecture_time_set.live = 3
@@ -36,31 +41,59 @@ def first_page(request):
         user = None
     arg = {'username' : user, 'lecture':lecture}
     return render(request, 'main.html', arg)
-def admin(request):
-    if request.session['user'] == 'admin':
-        now_time = datetime.now()
-        lecture = Lecture.objects.all()
-        for lecture_time_set in lecture:
-            compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
-            compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
-            if now_time > compare_time_one:
-                if now_time > compare_time_two:
-                    lecture_time_set.live = 3
-                else:
-                    lecture_time_set.live = 2
-            elif now_time < compare_time_one:
-                pass
-            lecture_time_set.save()
-        arg = {'lecture':lecture}
-        return render(request, 'admin.html',arg)
-    else:
+@csrf_exempt
+def admin_login(request):
+    try:
+        user_ck = request.session['user']
+        if user_ck == 'admin':
+            return redirect('admin')
+        else:
+            return redirect('/')
+    except:
         try:
-            user = request.session['user']
+            user_id = request.POST['id']
+            user_pw = request.POST['pw']
+            user_find = User_model.objects.get(email=user_id, password=user_pw)
+            request.session['user'] = user_find.nick_name
+            if user_find.nick_name == 'admin':
+                msg = '로그인 되었습니다.'
+                ck = True
+                arg = {'msg':msg, 'ck':ck}
+                return HttpResponse(json.dumps(arg),content_type='application/json')
+            else:
+                msg = '관리자 계정이 아닙니다.'
+                ck = False
+                arg = {'msg': msg, 'ck': ck}
+                print('555')
+                return HttpResponse(json.dumps(arg), content_type='application/json')
         except:
-            user = None
-        lecture = Lecture.objects.all()
-        arg = {'username': user, 'lecture': lecture}
-        return render(request, 'main.html', arg)
+            arg = {}
+            return render(request, 'admin_login.html', arg)
+@csrf_exempt
+def admin(request):
+    try:
+        users = request.session['user']
+        if request.session['user'] == 'admin':
+            now_time = datetime.now()
+            lecture = Lecture.objects.all()
+            for lecture_time_set in lecture:
+                compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
+                compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
+                if now_time > compare_time_one:
+                    if now_time > compare_time_two:
+                        lecture_time_set.live = 3
+                    else:
+                        lecture_time_set.live = 2
+                elif now_time < compare_time_one:
+                    pass
+                lecture_time_set.save()
+            arg = {'lecture':lecture}
+            return render(request, 'admin.html',arg)
+        else:
+             return redirect('admin_login')
+    except:
+        return redirect('admin_login')
+
 def test(request):
     arg = {}
     return render(request, 'test.html', arg)
@@ -226,15 +259,27 @@ def lecture_add(request):
         title = request.POST['title']
         company = request.POST['company']
         teacher = request.POST['teacher']
+        live_date = request.POST['live_date']
+        live_date_ = datetime.strptime(live_date, "%Y-%m-%d")
+        live_date_set = live_date_.strftime("%m/%d/%Y")
         live_time = request.POST['live_time']
+        live_time_ = datetime.strptime(live_time, "%H:%M")
+        live_time_set = datetime.strftime(live_time_, "%I:%M %p")
+        end_live = live_date_set + ' ' + live_time_set
         lecture_text = request.POST['lecture_text']
+        run_date = request.POST['run_date']
+        run_date_ = datetime.strptime(run_date, "%Y-%m-%d")
+        run_date_set = run_date_.strftime("%m/%d/%Y")
         run_time = request.POST['run_time']
+        run_time_ = datetime.strptime(run_time, "%H:%M")
+        run_time_set = datetime.strftime(run_time_, "%I:%M %p")
+        end_run = run_date_set + ' ' + run_time_set
         url = request.POST['urls']
         title_img = request.FILES.get('title_img')
 
         try:
             lec = Lecture.objects.create(title=title, title_img=title_img, company=company, teacher=teacher,
-                                         live_time=live_time, lecture_text=lecture_text, runnig_time=run_time,urls=url)
+                                         live_time=end_live, lecture_text=lecture_text, runnig_time=end_run ,urls=url)
             lec.save()
         except :
             print('err')
