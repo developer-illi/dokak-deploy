@@ -273,7 +273,7 @@ input[type=file]::file-selector-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    gap: 10px;
 }
 .admin_login_win{
     margin-top: 30px;
@@ -290,10 +290,10 @@ input[type=file]::file-selector-button {
     text-align: center;
 }
 .admin_login_btn > button{
-    margin-top: 20px;
+    margin-top: 32px;
     font-size: 20px;
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 74px;
     color: #fff;
     background-color: #FF6422;
 }
