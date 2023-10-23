@@ -121,7 +121,6 @@ function company_change(text){
 }
 function intro_change(text){
     var intro = document.getElementById('pre_intro');
-    alert(text);
     intro.textContent = text;
 }
 function previewImage(input) {
