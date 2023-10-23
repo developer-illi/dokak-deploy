@@ -290,6 +290,7 @@ body{
     margin-top: 10px;
 }
 .teaching_text{
+    font-family: initial;
     margin-top: 15px;
     font-size: 17px;
 }

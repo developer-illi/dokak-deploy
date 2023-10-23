@@ -157,6 +157,7 @@ textarea.border{
     font-size: 13px;
 }
 .pre-intro > pre{
+    font-family: initial;
     font-size: 13px;
 }
 .pre-time{
