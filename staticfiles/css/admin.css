@@ -156,6 +156,9 @@ textarea.border{
 .pre-intro > p {
     font-size: 13px;
 }
+.pre-intro > pre{
+    font-size: 13px;
+}
 .pre-time{
     margin-left: 150px;
     margin-top: 20px;
