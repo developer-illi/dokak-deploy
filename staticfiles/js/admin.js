@@ -43,7 +43,6 @@ $(function (){
         var runInput = form.querySelector('input[name="run_date"]');
         var run_timeInput = form.querySelector('input[name="run_time"]');
         var urlsInput = form.querySelector('input[name="urls"]');
-        alert('ttt')
         if (titleInput.value.trim() === '') {
             alert('제목을 입력해주세요.');
             titleInput.focus();
@@ -76,7 +75,6 @@ $(function (){
             return false;
         }
         form.submit();
-        alert('test');
     // 유효성 검사가 통과되면 폼을 제출합니다.
     // 여기에 서버로 데이터를 보내는 등의 추가 작업을 수행할 수 있습니다.
     // form.submit(); // 실제로 폼을 제출합니다.
