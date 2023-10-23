@@ -36,7 +36,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SECRET_KEY = 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-smg@!kic7h-lpiqxwa*&7q^^7$epaw2hg3np*bb1f$&%)ih*g9')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 # AUTH_USER_MODEL = 'mainpg.User'
