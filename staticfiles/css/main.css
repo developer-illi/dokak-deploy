@@ -292,6 +292,8 @@ body{
 .teaching_text{
     font-family: initial;
     margin-top: 15px;
+    letter-spacing: 2px;
+    line-height: 20px;
     font-size: 17px;
 }
 .img_area{

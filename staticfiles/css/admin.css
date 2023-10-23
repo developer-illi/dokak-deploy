@@ -157,6 +157,8 @@ textarea.border{
     font-size: 13px;
 }
 .pre-intro > pre{
+    letter-spacing: 2px;
+    line-height: 20px;
     font-family: initial;
     font-size: 13px;
 }
