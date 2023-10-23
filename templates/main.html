@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="teaching_title_text">
                                     <p class="teaching_title">{{ Lec.title }}</p>
-                                    <p class="teaching_text">{{ Lec.lecture_text }}</p>
+                                    <pre class="teaching_text">{{ Lec.lecture_text }}</pre>
                                     <span class="last_time_set" id="time{{ Lec.pk }}"></span>
                                     <div class="live_btn" id="{{ Lec.urls }}" onclick="page_open('{{ Lec.urls }}')">Go Live</div>
                                 </div>
