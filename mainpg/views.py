@@ -18,7 +18,7 @@ from email.mime.text import MIMEText
 # Create your views here.
 def first_page(request):
     now_time = datetime.now()
-    lecture = Lecture.objects.all()
+    lecture = Lecture.objects.all().order_by('live_time')
 
     for lecture_time_set in lecture:
         try:
@@ -75,7 +75,7 @@ def admin(request):
         users = request.session['user']
         if request.session['user'] == 'admin':
             now_time = datetime.now()
-            lecture = Lecture.objects.all()
+            lecture = Lecture.objects.all().order_by('id')
             for lecture_time_set in lecture:
                 compare_time_one = datetime.strptime(lecture_time_set.live_time, "%m/%d/%Y %I:%M %p")
                 compare_time_two = datetime.strptime(lecture_time_set.runnig_time, "%m/%d/%Y %I:%M %p")
